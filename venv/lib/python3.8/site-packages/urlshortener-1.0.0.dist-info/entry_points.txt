@@ -1,0 +1,3 @@
+[console_scripts]
+urlshortener = urlshortener.__main__:main
+

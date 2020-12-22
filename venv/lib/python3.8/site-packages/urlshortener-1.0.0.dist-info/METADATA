@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: urlshortener
+Version: 1.0.0
+Summary: shorten long urls
+Home-page: https://github.com/3ep-one/urlshortener
+Author: Sepehr Rafiei
+Author-email: sepehr.rafiei.k@ut.ac.ir
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: redis
+Requires-Dist: HTTPServer
+
+# urlshortener
+
+

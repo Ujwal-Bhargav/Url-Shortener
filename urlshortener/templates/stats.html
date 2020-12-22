@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+    html {
+        background-color: black !important;
+    }
+    body{
+    
+    }
+    .navbar {
+      width: 100%;
+      background-color: black !important;
+      overflow: auto;
+    }
+    
+    .navbar a {
+      float: right;
+      padding: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 17px;
+    }
+    
+    /* .navbar a:hover {
+      background-color: #055;
+    } */
+    
+    .active {
+      background-color: #4CAF;
+    }
+    
+    /* Full-width input fields */
+    input[type=text], input[type=password] {
+        
+        padding: 12px 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #cce;
+        box-sizing: border-box;
+    }
+    .label {
+        color: white;
+        display: block;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+    .input, .textarea {
+        box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+        max-width: 700%;
+        width: 100%;
+    }
+    td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color:  lavender;
+;
+}
+    
+    /* Set a style for all buttons */
+    button {
+        align:center;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        <!--cursor: pointer;-->
+        width: 100%;
+    }
+    
+    button:hover {
+        opacity: 0.5;
+    }
+    
+    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Stats</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('tbody tr').each(function(index){
+               $(this).children('td').first().text(index+1)
+            });
+        });
+    </script>
+</head>
+<body style="background-color:black">
+    <div class="navbar">
+        <a href="/"><i class="fa fa-fw fa-home"></i><strong>Home</strong></a>
+        <a href="/stats"><i class="fa fa-globe"></i><strong>Stats</strong></a></div>
+    <section class="section">
+        <div class="container">
+            <table class="table">
+                <thead style="background-color:#62cfd1;">
+                    <tr>
+                        <th>S.No</th>
+                        <th>Original URL</th>
+                        <th>Short URL</th>
+                        <th>Visits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    {% for link in links %}
+                    <tr style="color:black;">
+                        <td> </td>
+                        <td>{{ link.original_url }}</td>
+                        <td>{{ url_for('short.redirect_to_url', short_url=link.short_url, _external=True) }}</td>
+                        <td>{{ link.visits }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Url_shortener</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+    <style>
+        /* body {font-family: Arial, Helvetica, sans-serif;} */
+
+html {
+    background-color: black;
+}
+body{
+
+}
+.navbar {
+  width: 100%;
+  background-color: black;
+  overflow: auto;
+}
+
+.navbar a {
+  float: right;
+  padding: 20px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* .navbar a:hover {
+  background-color: #055;
+} */
+
+.active {
+  background-color: #4CAF;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    
+    padding: 12px 10px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #cce;
+    box-sizing: border-box;
+}
+.label {
+    color: white;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+}
+.input, .textarea {
+    box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+    max-width: 700%;
+    width: 100%;
+}
+
+/* Set a style for all buttons */
+button {
+    align:center;
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    <!--cursor: pointer;-->
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.5;
+}
+
+</style>
+<script>
+    function isValidHttpUrl() {
+        var url=document.getElementsByClassName("input")[0].value;
+            var pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+
+        
+            
+        if(!!pattern.test(url))
+        {
+            document.takeUserInput.submit()
+        }
+        else{
+            alert("Invalid url");
+        }
+    }
+
+</script>
+</head>
+
+<body style="background-color:black">
+    <div class="navbar">
+        <a href="/"><i class="fa fa-fw fa-home"></i><strong>Home</strong></a>
+        <a href="/stats"><i class="fa fa-globe"></i><strong>Stats</strong></a></div>
+    <!-- <h1>URL Shortner</h1> -->
+    <section class="section">
+        <div class="container">
+            <form name="takeUserInput" method="POST" action="{{ url_for('short.add_link') }}">
+                <div class="field">
+                    <label class="label"  >Original URL</label>
+                    <div class="control">
+                        <input class="input" type="text" name="original_url" placeholder="Please enter url you want to shorten" >
+                    </div>
+
+                </div>
+                <div class="control">
+                    <button type="button" class="button is-info" onclick="isValidHttpUrl()">Shorten</button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</body>
+
+</html>
