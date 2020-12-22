@@ -2,10 +2,13 @@
 Url shortner using Flask web framework in python
 
 1. Install flask:
+
 	    pip install flask
 2. For using global variables:
+
 	    pip install python-dotenv(to use flask_env file)
 3. For storing data:
+
       pip install sqlalchemy
 
 Instructions:
