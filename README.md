@@ -9,7 +9,7 @@ Url shortner using Flask web framework in python
       pip install sqlalchemy
 
 Instructions:
-1. Create a virtual environment(Preferably python3.6) 
+1. Create a virtual environment(Preferably python3.6 and above) 
 2. Install packages specified in requirements.txt
 3. Create database
      a) Install sqlite2 with the following command: 
