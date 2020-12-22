@@ -9,8 +9,7 @@ Url shortner using Flask web framework in python
 	    pip install python-dotenv(to use flask_env file)
 3. For storing data:
 
-      	    pip install sqlalchemy
-
+	    pip install sqlalchemy
 Instructions:
 
 1. Create a virtual environment(Preferably python3.6 and above) 
@@ -27,11 +26,9 @@ Instructions:
      
      	    from urlshortener import create_app
             from urlshortener.extensions import db
-	    	from urlshortener.models import Link
+	    from urlshortener.models import Link
             db.create_all(app=create_app)
             exit()
-	   
-	   
      c)if created you will see db.sqlite3 file created.
      
      
