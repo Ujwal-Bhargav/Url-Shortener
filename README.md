@@ -27,7 +27,7 @@ Instructions:
      
      	    from urlshortener import create_app
             from urlshortener.extensions import db
-	    from urlshortener.models import Link
+	    	from urlshortener.models import Link
             db.create_all(app=create_app)
             exit()
 	   
